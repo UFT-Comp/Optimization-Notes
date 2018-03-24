@@ -1,50 +1,76 @@
 <template>
     <v-app :dark="darkTheme">
-        <v-btn fab dark small color="primary">
-            <v-icon dark>remove</v-icon>
-        </v-btn>
+        <transition name="slide-fade" mode="out-in" appear>
+            <keep-alive>
+                <div :is="topPage"></div>
+            </keep-alive>
+        </transition>
+        <transition name="slide-fade-horizontal" mode="out-in" appear>
+            <keep-alive>
+                <div :is="mainPage"></div>
+            </keep-alive>
+        </transition>
     </v-app>
 </template>
-
 
 
 <script lang="ts">
 
 import Vue from "vue";
 
-import Store from "./Store/index";
-
-import Component from "vue-class-component";
-
+import { Component, Prop } from "vue-property-decorator";
 
 import Vuetify from "vuetify";
+
+import Page from "./Pages/Page";
+
+import Top from "./Pages/Top/Top.vue";
+import Index from "./Pages/Index/Index.vue";
+
 
 Vue.use(Vuetify);
 
 
 
-@Component({
-    store: Store
-})
-export default class App extends Vue {
 
-    get darkTheme () {
-        return this.$store.state.darkTheme;
+
+
+@Component({
+    components: {
+        "top": Top,
+        "index": Index
+    },
+})
+export default class App extends Page {
+    
+    get topPage () {
+        return this.$store.state.topPage;
     }
 
-    set darkTheme (darkTheme: boolean) {
-        this.$store.commit('setTheme', darkTheme);
+    get mainPage () {
+        return this.$store.state.mainPage;
+    }
+
+    mounted () {
+        this.setTopPage("top");
+        this.setMainPage("index");
     }
 }
 
 </script>
 
 
-<!--<style src="vuetify/dist/vuetify.min.css"></style>
-
 <style>
-html {
-    font-family: 'Roboto', sans-serif;
+
+.slide-fade-enter-active {
+  transition: all .5s ease;
 }
+.slide-fade-leave-active {
+  transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translateY(-40px);
+  opacity: 0;
+}
+
 </style>
--->
