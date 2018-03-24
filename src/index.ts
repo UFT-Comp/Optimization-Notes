@@ -1,13 +1,13 @@
-import devtools from "@vue/devtools";
-
 import Vue from "vue";
 
 import App from "./App.vue";
 
+import "./css/Icons.css";
+import "./css/Roboto.css";
 
-if (process.env.NODE_ENV === 'development') {
-    devtools.connect();
-}
+import "vuetify/dist/vuetify.min.css";
+
+
 
 let app = new Vue({
     el: "#app",

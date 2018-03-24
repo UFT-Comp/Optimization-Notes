@@ -21,13 +21,14 @@
     },
     "homepage": "https://matheuspf.github.io",
     "devDependencies": {
-        "typescript": "^2.7.1",
         "@vue/devtools": "^1.0.2",
-        "webpack": "^3.11.0",
-        "file-loader": "^1.1.6",
         "css-loader": "^0.28.9",
+        "file-loader": "^1.1.6",
+        "style-loader": "^0.20.3",
         "ts-loader": "^3.5.0",
-        "vue-loader": "^14.1.1"
+        "typescript": "^2.7.1",
+        "vue-loader": "^14.1.1",
+        "webpack": "^3.11.0"
     },
     "dependencies": {
         "vue": "^2.5.13",
