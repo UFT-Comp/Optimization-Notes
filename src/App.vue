@@ -16,7 +16,7 @@
 
 <script lang="ts">
 
-import Vue from "vue";
+import Vue,{ PluginObject, PluginFunction } from "vue";
 
 import { Component, Prop } from "vue-property-decorator";
 
@@ -26,6 +26,7 @@ import Page from "./Pages/Page";
 
 import Top from "./Pages/Top/Top.vue";
 import Index from "./Pages/Index/Index.vue";
+import Book from "./Pages/Book/Book.vue";
 
 
 Vue.use(Vuetify);
@@ -33,12 +34,11 @@ Vue.use(Vuetify);
 
 
 
-
-
 @Component({
     components: {
         "top": Top,
-        "index": Index
+        "index": Index,
+        "book": Book
     },
 })
 export default class App extends Page {
@@ -53,7 +53,7 @@ export default class App extends Page {
 
     mounted () {
         this.setTopPage("top");
-        this.setMainPage("index");
+        this.setMainPage("book");
     }
 }
 

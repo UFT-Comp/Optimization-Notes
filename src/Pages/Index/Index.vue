@@ -61,7 +61,7 @@
                       <v-icon x-large class="blue--text text--lighten-2">build</v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
-                      <div class="headline text-xs-center">Read or book</div>
+                      <div class="headline text-xs-center">Read our book</div>
                     </v-card-title>
                     <v-card-text>
                       Along with our code, we develop a complete refence book.
@@ -74,16 +74,14 @@
         </v-layout>
       </section>
 
+
+    <div style="height: 100px;"/>
+
       <section>
         <v-parallax src="assets/optimization2.jpg" height="500">
           <v-layout column align-center justify-center>
             <div class="headline white--text mb-3 text-xs-center">Let's start?</div>
-            <v-btn
-              class="blue lighten-2 mt-5"
-              dark
-              large
-              href="/pre-made-themes"
-            >
+            <v-btn class="blue lighten-2 mt-5" dark large @click="setMainPage('book')">
               Get Started
             </v-btn>
           </v-layout>

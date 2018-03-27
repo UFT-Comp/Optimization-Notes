@@ -5,7 +5,8 @@
     "main": "src/index.ts",
     "scripts": {
         "test": "",
-        "bundle": "webpack"
+        "bundle": "webpack",
+        "dev-server": "webpack-dev-server --hot"
     },
     "repository": {
         "type": "git",
@@ -31,11 +32,14 @@
         "webpack": "^3.11.0"
     },
     "dependencies": {
+        "axios": "^0.18.0",
+        "markdown-it": "^8.4.1",
+        "markdown-it-katex": "^2.0.3",
         "vue": "^2.5.13",
-        "vuetify": "^1.0.3",
-        "vuex": "^3.0.1",
         "vue-class-component": "^6.2.0",
         "vue-property-decorator": "^6.0.0",
-        "vue-template-compiler": "^2.5.13"
+        "vue-template-compiler": "^2.5.13",
+        "vuetify": "^1.0.3",
+        "vuex": "^3.0.1"
     }
 }
