@@ -55,7 +55,8 @@ module.exports = {
     resolve: {
         extensions: ['.json', '.ts', '.js', '.vue'],
         alias: {
-            vue: 'vue/dist/vue.common.js'
+            vue: 'vue/dist/vue.common.js',
+            mathjax: "mathjax/MathJax.js"
           }
     },
 

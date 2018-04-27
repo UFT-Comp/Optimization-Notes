@@ -1,6 +1,5 @@
 # Matemática Aplicada à Ciência da Computação
-
-
+\
 Nos cursos de ciência da computação o eixo de matemática é composto por várias matérias que envolvem diversos conceitos e são estudados pelos alunos durante aproximadamente um terço de todo o curso. São disciplinas que envolvem cálculo diferencial tanto no plano como no espaço, ou multidimensional, matérias que envolvem conseitos de métodos numéricos, métodos discretos, geometria analítica e álgebra, dentre outros.
 
 As disciplinas fazem parte do ciclo básico dos cursos de ciência da computação que exige do aluno o entendimento de todo o processo matemático para com o decorrer do curso irem aplicando estes conceitos com o passar do tempo no curso. O problema é que devido a tantos conceitos mostrados nestes cursos de cálculo, para o aluno iniciante, e até mesmo para um mais experiente, é dificil assimilar e encontrar aplicações diretas e utilidades no cotidiano de um estudante de ciência da computação e isso pode ser interpretado como um impasse para o aprendizado do aluno, pois, o mesmo, sem saber onde tais conceitos podem ser usado não encontra motivação suficiente para aprende-los.

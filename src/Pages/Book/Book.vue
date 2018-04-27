@@ -1,34 +1,40 @@
 <template>
 <div>
     
-    <v-container grid-list-md text-xs-center fluid>
+    <v-container grid-list-md fluid>
         <v-layout row wrap>
-            <v-flex xs2>
+            <v-flex xs3>
                 <v-card hover v-show="drawer">
-                    <v-list dense>
-                        <v-list-tile @click="drawer = false">
-                                <v-list-tile-action>
-                                    <v-icon>fast_rewind</v-icon>
-                                </v-list-tile-action>
-                        </v-list-tile>
+                    <v-list two-line subheader style="margin-left: 0px;">
+                        <v-list-tile avatar v-for="chapter in chapters" :key="chapter.title" 
+                                     @click="currentChapter = chapter">
+                            <!-- <v-list-tile-avatar >
+                                <v-icon>{{ chapter.icon }}</v-icon>
+                            </v-list-tile-avatar> -->
 
-                        <template v-for="(chapter, index) in chapters">
-                            <v-list-tile :key="index" @click="currentChapter = chapter">
-                                <v-list-tile-action>
-                                    <v-icon>{{ chapter.icon }}</v-icon>
-                                </v-list-tile-action>
-                                <v-list-tile-content>
-                                    <v-list-tile-title>{{ chapter.text }}</v-list-tile-title>
-                                </v-list-tile-content>
-                            </v-list-tile>
-                        </template>
+                            <v-list-tile-content style="margin-left: 0px;">
+                                <v-list-tile-title style="margin-left: 0px;">{{ chapter.title }}</v-list-tile-title>
+                                <v-list-tile-sub-title style="margin-left: 0px;">{{ chapter.subtitle }}</v-list-tile-sub-title>
+                            </v-list-tile-content>
+
+                            <!-- <v-list-tile-action>
+                                <v-btn icon ripple>
+                                    <v-icon color="grey lighten-1">info</v-icon>
+                                </v-btn>
+                            </v-list-tile-action> -->
+                        </v-list-tile>
                     </v-list>
                 </v-card>
             </v-flex>
 
-            <v-flex :offset-xs1="drawer" :xs8="drawer" :xs12="!drawer">
-                <div v-html="test" class="justified-text" />
+            <v-flex  :xs8="drawer" :xs12="!drawer">
+                <div id="chapter" v-html="test" class="justified-text" />
             </v-flex>
+            
+        
+            
+
+
         </v-layout>
     </v-container>
 
@@ -42,18 +48,28 @@ import Page from "../Page";
 import { Component, Prop, Watch } from "vue-property-decorator";
 
 import axios from "axios";
-
-import MarkdownIt from "markdown-it";
-
-import mdktex from "markdown-it-katex";
+import { setTimeout } from "timers";
 
 
+(window as any).MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$','$'], ['\\(','\\)']]
+        },
+        TeX: {
+            Macros: {
+                bm: ["{\\boldsymbol #1}",1],
+            }
+        }
+    }
+);
 
 
 interface Chapter {
-  icon: string;
-  text: string;
-  markdown: string;
+    icon: string;
+    title: string;
+    subtitle: string;
+    markdown: string;
+    chapter: string;
 }
 
 @Component
@@ -68,33 +84,44 @@ export default class Book extends Page {
 
     markdownPath = "src/Pages/Book/markdown/";
 
-    mdit = new MarkdownIt({
-        html: true
-    }).use(mdktex, {"throwOnError" : false, "errorColor" : " #cc0000"});
-
+    chapterPath = "src/Pages/Book/html/";
 
     mounted() {
         this.chapters = [
             {
                 icon: "add",
-                text: "Intro",
-                markdown: "Intro.md"
+                title: "Intro",
+                subtitle: "Introdução",
+                markdown: "Intro.md",
+                chapter: "Intro.html"
             },
             {
                 icon: "remove",
-                text: "Ensino Secundario",
-                markdown: "EnsinoSecundario.md"
+                title: "Ensino Secundário",
+                subtitle: "Ensino Secundário",
+                markdown: "EnsinoSecundario.md",
+                chapter: "EnsinoSecundario.html"
+            },
+            {
+                icon: "add",
+                title: "Otimização",
+                subtitle: "Otimização",
+                markdown: "Otimizacao.md",
+                chapter: "Otimizacao.html"
             }
         ];
 
-        this.currentChapter = this.chapters[0];
+        this.currentChapter = this.chapters[2];
+
+        this.loadPage();
     }
 
 
     @Watch('currentChapter')
     loadPage () {
-        return axios.get(this.markdownPath + this.currentChapter.markdown).then(response => {
-            this.test = this.mdit.render(response.data);
+        return axios.get(this.chapterPath + this.currentChapter.chapter).then(response => {
+            this.test = response.data;
+            setTimeout(() => (window as any).MathJax.Hub.Typeset(), 0);
         });
     }
 }
@@ -102,8 +129,4 @@ export default class Book extends Page {
 
 
 <style>
-p {
-    text-align: justify;
-    text-justify: inter-word;
-}
 </style>
