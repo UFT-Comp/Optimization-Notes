@@ -1,5 +1,5 @@
 <template>
-    <v-toolbar color="blue lighten-3" scroll-off-screen :scroll-threshold="30">
+    <v-toolbar app color="blue lighten-3" scroll-off-screen :scroll-threshold="30" elevation-20>
         <v-toolbar-title v-text="title"></v-toolbar-title>
     </v-toolbar>
 </template>

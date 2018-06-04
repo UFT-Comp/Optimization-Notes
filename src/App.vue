@@ -2,12 +2,13 @@
     <v-app :dark="darkTheme">
         <transition name="slide-fade" mode="out-in" appear>
             <keep-alive>
-                <div :is="topPage"></div>
+                <div :is="topPage"/>
             </keep-alive>
         </transition>
+        
         <transition name="slide-fade-horizontal" mode="out-in" appear>
             <keep-alive>
-                <div :is="mainPage"></div>
+                <div :is="mainPage"/>
             </keep-alive>
         </transition>
     </v-app>
@@ -27,6 +28,7 @@ import Page from "./Pages/Page";
 import Top from "./Pages/Top/Top.vue";
 import Index from "./Pages/Index/Index.vue";
 import Book from "./Pages/Book/Book.vue";
+import Test from "./Pages/Test/Test.vue";
 
 
 Vue.use(Vuetify);
@@ -38,22 +40,14 @@ Vue.use(Vuetify);
     components: {
         "top": Top,
         "index": Index,
-        "book": Book
+        "book": Book,
+        "test": Test
     },
 })
 export default class App extends Page {
-    
-    get topPage () {
-        return this.$store.state.topPage;
-    }
-
-    get mainPage () {
-        return this.$store.state.mainPage;
-    }
-
     mounted () {
-        this.setTopPage("top");
-        this.setMainPage("book");
+        this.topPage = "top";
+        this.mainPage = "test";
     }
 }
 

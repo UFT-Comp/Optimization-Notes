@@ -8,31 +8,30 @@ import Store from "../Store/index";
     store: Store
 })
 export default class Page extends Vue {
-    setTopPage(newTopPage: string) {
-        this.$store.commit('setTopPage', newTopPage);
+
+    get topPage () {
+        return this.$store.state.topPage;
     }
 
-    setMainPage(newMainPage: string) {
-        this.$store.commit('setMainPage', newMainPage);
+    set topPage (topPage: string) {
+        this.$store.commit('setTopPage', topPage);
     }
 
-    setPages(newPages: string) {
-        this.$store.commit('setPages', newPages);
+
+    get mainPage () {
+        return this.$store.state.mainPage;
     }
 
-    setTheme (darkTheme: boolean) {
+    set mainPage(mainPage: string) {
+        this.$store.commit('setMainPage', mainPage);
+    }
+    
+
+    set darkTheme (darkTheme: boolean) {
         this.$store.commit('setTheme', darkTheme);
-    }
-
-    setCurrentQuery (query: string) {
-        this.$store.commit('setCurrentQuery', query);
     }
 
     get darkTheme () {
         return this.$store.state.darkTheme;
-    }
-
-    get currentQuery () {
-        return this.$store.state.currentQuery;
     }
 }
