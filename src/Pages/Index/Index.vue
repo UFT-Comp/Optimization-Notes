@@ -2,7 +2,7 @@
 <div>
     <v-content>
       <section>
-        <v-parallax src="assets/optimization.jpg" height="450">
+        <!-- <v-parallax src="assets/optimization.jpg" height="450">
           <v-layout column align-center justify-center class="white--text">            
             <h1 class="white--text mb-2 display-1 text-xs-center">
               Optimization Notes
@@ -11,7 +11,10 @@
               Algorithms for optimization
             </div>
           </v-layout>
-        </v-parallax>
+        </v-parallax> -->
+
+        <background-image src="./assets/optimization.jpg" :height="450" :items="menuItems" :goToPos="500"/>
+
       </section>
 
       <section>
@@ -192,10 +195,19 @@ import Page from "../Page";
 
 import { Component, Prop } from "vue-property-decorator";
 
+import BackgroundImage from "../../Components/BackgroundImage/BackgroundImage.vue";
 
-@Component
+
+@Component({
+    components: {
+        "background-image": BackgroundImage
+    }
+})
 export default class Index extends Page {
-
+    menuItems = [
+        { title: "Optimization Notes", subtitle: "Algorithms for optimization" },
+        { title: "Start learning now", subtitle: "Make a tour" }
+    ]
 };
 
 

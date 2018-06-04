@@ -11,6 +11,7 @@
                 <div :is="mainPage"/>
             </keep-alive>
         </transition>
+
     </v-app>
 </template>
 
@@ -47,7 +48,7 @@ Vue.use(Vuetify);
 export default class App extends Page {
     mounted () {
         this.topPage = "top";
-        this.mainPage = "test";
+        this.mainPage = "index";
     }
 }
 

@@ -14,7 +14,7 @@ import Page from "../Page";
 
 import { Component, Prop, Watch } from "vue-property-decorator";
 
-import PlotFunction from "../../misc/PlotFunction.vue";
+import PlotFunction from "../../Components/PlotFunction/PlotFunction.vue";
 
 
 @Component({

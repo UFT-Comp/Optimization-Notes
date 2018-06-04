@@ -111,9 +111,9 @@ export default class Book extends Page {
             }
         ];
 
-        this.currentChapter = this.chapters[2];
+        this.currentChapter = this.chapters[1];
 
-        setTimeout(() => this.loadPage(), 200);
+        this.loadPage();
     }
 
 

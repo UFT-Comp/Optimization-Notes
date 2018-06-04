@@ -9,6 +9,7 @@ interface State {
     darkTheme: boolean;
     topPage: string;
     mainPage: string;
+    offsetTop: number;
 };
 
 
@@ -18,7 +19,8 @@ export default new Vuex.Store<State>({
     state: {
         darkTheme: false,
         topPage: "",
-        mainPage: ""
+        mainPage: "",
+        offsetTop: 0
     },
 
     mutations: {
@@ -37,13 +39,18 @@ export default new Vuex.Store<State>({
         setPages: function (state: {mainPage: string, topPage: string}, pages: {newTopPage: string, newMainPage: string}) {
             state.topPage = pages.newTopPage;
             state.mainPage = pages.newMainPage;
+        },
+
+        setOffsetTop : function (state: { offsetTop: number }, offsetTop: number) {
+            state.offsetTop = offsetTop;
         }
     },
 
     actions: {
-        setTheme: ({ commit }) => commit('setTheme'),
+        setTheme:    ({ commit }) => commit('setTheme'),
         setTopPage:  ({ commit }) => commit('setTopPage'),
         setMainPage: ({ commit }) => commit('setMainPage'),
-        setPages:    ({ commit }) => commit('setPages')
+        setPages:    ({ commit }) => commit('setPages'),
+        offsetTop:   ({ commit }) => commit('setOffsetTop')
     }
 });

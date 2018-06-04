@@ -34,4 +34,13 @@ export default class Page extends Vue {
     get darkTheme () {
         return this.$store.state.darkTheme;
     }
+
+
+    set offsetTop (offsetTop: number) {
+        this.$store.commit('setOffsetTop', offsetTop);
+    }
+
+    get offsetTop () {
+        return this.$store.state.offsetTop;
+    }
 }
