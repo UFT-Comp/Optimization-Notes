@@ -98,7 +98,7 @@ export default class BackgroundImage extends Vue {
 }
 
 .darken-background > .card__media__background {
-    opacity: 0.3;
+    opacity: 0.5;
 }
 
 

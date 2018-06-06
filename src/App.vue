@@ -48,7 +48,7 @@ Vue.use(Vuetify);
 export default class App extends Page {
     mounted () {
         this.topPage = "top";
-        this.mainPage = "index";
+        this.mainPage = "test";
     }
 }
 

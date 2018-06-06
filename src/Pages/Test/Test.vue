@@ -4,6 +4,10 @@
     <plot-function id="plotfunc" :expr="expr" :lower="lower" :upper="upper"/>
 
 
+    <v-btn @click="test()">
+        TEST!!
+    </v-btn>
+
 </div>
 </template>
 
@@ -27,6 +31,28 @@ export default class Test extends Page {
 
     lower = -1.0;
     upper = 1.0;
+
+
+
+    test () {
+        var rosenbrock = function (x) {
+            var res = 0.0;
+            
+            for(let i = 0; i < x.length-1; ++i)
+                res += 100 * Math.pow(x[i+1] - Math.pow(x[i], 2), 2) + Math.pow(x[i] - 1.0, 2);
+            
+            return res;
+        };
+
+        let gd = new (window as any).Module.GD();
+
+        var x0 = (Array as any).from({length: 50}, (v, k) => 1.2);
+
+        var x = gd.optimize(rosenbrock, x0);
+
+        console.log(x);
+    }
+
 };
 
 
