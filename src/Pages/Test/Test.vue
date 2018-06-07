@@ -2,15 +2,20 @@
 <div>
 
     <!-- <plot-function id="plotfunc" :expr="expr" :lower="lower" :upper="upper"/> -->
-
-    <plot id="pltt" ref="plt"/>
+    <!-- <v-card >
+    <v-container>
+        <plot id="pltt" ref="plt"/>
+    </v-container>
+    </v-card>
 
     <v-text-field v-model="func" textarea :color="validFunc ? 'blue' : 'red'">
     </v-text-field>
 
     <v-btn @click="test()">
         TEST
-    </v-btn>
+    </v-btn> -->
+
+    <!-- Capitulo 8 Rosseti 395 Princiopios Introducao economia -->
 
 </div>
 </template>
@@ -25,6 +30,8 @@ import Plot from "../../Components/Plot/Plot.vue";
 import { Component, Prop, Watch } from "vue-property-decorator";
 
 import PlotFunction from "../../Components/PlotFunction/PlotFunction.vue";
+
+// window["Reveal"] = require("reveal.js");
 
 
 @Component({
@@ -71,6 +78,8 @@ export default class Test extends Page {
 
         window["gd"].maxIterations = 100;
         window["gd"].fTol = 1e-7;
+
+        //(window as any).Reveal({ embedded: false });
     }
 
 

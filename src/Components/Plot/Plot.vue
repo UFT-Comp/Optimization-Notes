@@ -1,7 +1,5 @@
 <template>
-    <v-container>
-        <canvas :id="id" :width="width" :height="height"/>
-    </v-container>
+    <canvas :id="id"/>
 </template>
 
 

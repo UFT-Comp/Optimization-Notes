@@ -1,4 +1,5 @@
 <template>
+
     <v-app :dark="darkTheme">
         <transition name="slide-fade" mode="out-in" appear>
             <keep-alive>
@@ -13,6 +14,7 @@
         </transition>
 
     </v-app>
+
 </template>
 
 
@@ -33,7 +35,6 @@ import Test from "./Pages/Test/Test.vue";
 
 
 Vue.use(Vuetify);
-
 
 
 
