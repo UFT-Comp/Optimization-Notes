@@ -17,11 +17,92 @@
 
 <div class="reveal">
     <div class="slides">
-        <section>Single Horizontal Slide</section>
         <section>
-            <section>Vertical Slide 1</section>
-            <section>Vertical Slide 2</section>
+            <h2>Plataforma online para aprendizado sobre otimização</h2>
         </section>
+        
+
+        <section>
+            <section>
+                <h3>Objetivos do projeto</h3>
+                <br/>
+                <ul>
+                    <li>Desenvolvimento de um ambiente online para aprendizado sobre otimização</li>
+                    <li>Estudo e desenvolvimento de diversos algoritmos de otimização, com foco em performance e modularidade</li>
+                    <li>Desenvolvimento de uma biblioteca especializada em otimização contínua (<i>nlpp</i>)</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>nlpp</h3>
+                <br/>
+
+                <ul>
+                    <li>A linguagem de programação utilizada foi o C++, especificamente o C++ 11/14</li>
+                    <li>A biblioteca foi desenvolvida para conter somente templates em headers</li>
+                        <ul>
+                            <li>Isto é, uma <i>header only library</i> </li>
+                        </ul>
+                    <li>Usando a biblioteca de álgebra linear <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen</a>, a <i>nlpp</i> é bem rápida!</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>nlpp</h3>
+                <br/>
+
+                <ul>
+                    <li>Diversos algoritmos de otimização foram desenvolvidos em forma de templates</li>
+                        <ul>
+                            <li><a>Gradient Descent</a></li>
+                            <li><a>Newton's method</a></li>
+                            <li><a>Conjugate Gradient</a></li>
+                            <li><a>BFGS</a></li>
+                            <li><a>L-BFGS</a></li>
+                        </ul>
+                </ul>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h3>Interface web</h3>
+                <br/>
+                <ul>
+                    <li>A interface web foi construída para ser acessada na forma de livro, com alguns exemplos online</li>
+                    <li>As ferramentas usadas foram:</li>
+                        <ul>
+                            <li><a href="">Vue</a></li>
+                            <li><a href="">Emscripten</a></li>
+                            <li><a href="">Markdown</a></li>
+                            <li><a href="">Chart.js</a></li>
+                            <li><a href="">Reveal.js</a></li>
+                        </ul>
+                </ul>
+            </section>
+        
+            <section>
+                <h3>Interface web</h3>
+                <br/>
+                <ul>
+                    <li>O site é um <a>gitpage</a></li>
+                    <li>Isso é, um site estático</li>
+                    <li>Sem servidor, sem banco de dados</li>
+                    <li><a href="">HTML, CSS</a> e <a href="">JS</a> </li>
+                </ul>
+            </section>
+        </section>
+
+        <section>
+            <h3>Comunicação <a>C++</a>/<a>JS</a></h3>
+            <br/>
+            <ul>
+                <li>A ferramenta <a>Emscriten</a> foi utilizada para compilar o código desenvolvido em C++ para Java Script</li>
+                <li>Dessa forma, podemos acessar classes e algoritmos implementados em C++ diretamente de JS</li>
+            </ul>
+        </section>
+
+
     </div>
 </div>
 

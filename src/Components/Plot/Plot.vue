@@ -35,8 +35,9 @@ export default class Plot extends Vue {
     plotData (x, y) {
         let dataSets = [{
             label: 'X',
-            borderColor: 'red',
-            borderWidth: 1,
+            borderColor: 'rgb(255, 0, 0)',
+            backgroundColor: 'rgba(255, 0, 0, 0.5)',
+            fill: 'origin',
             data: y,
             showLine: true
         }]
@@ -70,12 +71,19 @@ export default class Plot extends Vue {
 
             scales: {
                 xAxes: [{
+                    gridLines: {
+                        display: false
+                    },
                     ticks: {
                         type: "linear",
-                        beginAtZero:true
+                        beginAtZero:true,
+                        stepSize: 10.0
                     }
                 }],
                 yAxes: [{
+                    gridLines: {
+                        display: false
+                    },
                     type: "logarithmic",
                     ticks: {
                         type: "logarithmic",

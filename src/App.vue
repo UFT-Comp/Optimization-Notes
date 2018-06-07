@@ -31,7 +31,7 @@ import Page from "./Pages/Page";
 import Top from "./Pages/Top/Top.vue";
 import Index from "./Pages/Index/Index.vue";
 import Book from "./Pages/Book/Book.vue";
-import Test from "./Pages/Test/Test.vue";
+import Opt from "./Pages/Opt/Opt.vue";
 
 
 Vue.use(Vuetify);
@@ -43,13 +43,13 @@ Vue.use(Vuetify);
         "top": Top,
         "index": Index,
         "book": Book,
-        "test": Test
+        "opt": Opt
     },
 })
 export default class App extends Page {
     mounted () {
         this.topPage = "top";
-        this.mainPage = "test";
+        this.mainPage = "opt";
     }
 }
 
