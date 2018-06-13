@@ -61,8 +61,10 @@ export default class Opt extends Page {
     upper = 1.0;
 
     x: number[] = [];
-    y: number[] = [];
-    index: number = 0;
+    yg: number[] = [];
+    yl: number[] = [];
+    indexg: number = 0;
+    indexl: number = 0;
 
     func = "(x) => { \n \
             var res = 0.0;    \n \
@@ -73,7 +75,7 @@ export default class Opt extends Page {
             return res; \n \
         }";
 
-    x0 = "() => (Array as any).from({length: 200}, (v, k) => 1.2)";
+    x0 = "() => Array.from({length: 200}, (v, k) => 1.2)";
 
 
     get validFunc () {
@@ -100,29 +102,37 @@ export default class Opt extends Page {
     mounted () {
         var self = this;
         var i = 0;
-        window["gd"] = new (window as any).Module.GD(x => { self.x.push(self.index++); self.y.push(x); });
+        window["gd"] = new (window as any).Module.GD(x => { self.x.push(self.indexg++); self.yg.push(x); });
+        window["lbfgs"] = new (window as any).Module.LBFGS(x => { self.x.push(self.indexl++); self.yl.push(x); });
 
-        window["gd"].maxIterations = 100;
+        window["gd"].maxIterations = 20;
         window["gd"].fTol = 1e-7;
 
-        //(window as any).Reveal({ embedded: false });
+        window["lbfgs"].maxIterations = 20;
+        window["lbfgs"].fTol = 1e-7;
     }
 
 
     test () {
         let i = 0;
 
-        //var x0 = (Array as any).from({length: 200}, (v, k) => 1.2);
+        var gdX = window["gd"].optimize(Function("return (" + this.func + ");")(),
+                                        Function("return (" + this.x0 + ");")()());
 
-        var x = window["gd"].optimize(Function("return (" + this.func + ");")(),
-                                      Function("return (" + this.x0 + ");")()());
+        var lbfgsX = window["lbfgs"].optimize(Function("return (" + this.func + ");")(),
+                                              Function("return (" + this.x0 + ");")()());
 
-        this.$refs["plt"]["plot"](this.x, this.y);
-        this.$refs["plt2"]["plot"](this.x, this.y);
+        console.log(gdX);
+        console.log(lbfgsX);
+
+        this.$refs["plt"]["plot"](this.x, this.yg);
+        this.$refs["plt2"]["plot"](this.x, this.yl);
 
         this.x = [];
-        this.y = [];
-        this.index = 0;
+        this.yg = [];
+        this.yl = [];
+        this.indexl = 0;
+        this.indexg = 0;
     }
 
 };
