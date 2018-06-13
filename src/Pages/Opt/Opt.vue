@@ -30,7 +30,6 @@
         TEST
     </v-btn>
 
-    <!-- Capitulo 8 Rosseti 395 Princiopios Introducao economia 441 -->
 
 </div>
 </template>
